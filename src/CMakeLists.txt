@@ -6,7 +6,7 @@ add_library(
 )
 
 add_library(
-    subLib SHARED
+    subLib STATIC
     SubDirectoryFunction/makeDirectory.h
     SubDirectoryFunction/makeDirectory.cpp
 )
