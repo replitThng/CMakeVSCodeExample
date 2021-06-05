@@ -16,8 +16,26 @@
 # cmake -G "NMake Makefiles" .. 
 # nmake
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 project(HELLOWORLDPROJ VERSION 1.0)
+
+# this cmake variable sets library output and runtime to the same as binary
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+#Test for win32
+if(WIN32)
+message("-- compile for windows")    
+else()
+message("-- compile for linux")
+endif()
+
+message("-- PROJECT_BINARY_DIR : " ${PROJECT_BINARY_DIR})
+message("-- CMAKE_BINARY_DIR : " ${CMAKE_BINARY_DIR} )
+message("-- CMAKE_SOURCE_DIR : " ${CMAKE_SOURCE_DIR} )
+message("-- CMAKE_ARCHIVE_OUTPUT_DIRECTORY : " ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
+message("-- CMAKE_LIBRARY_OUTPUT_DIRECTORY : " ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+message("-- CMAKE_RUNTIME_OUTPUT_DIRECTORY : "  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 #sub directories to be added before add_executable
 add_subdirectory(src)
@@ -26,3 +44,4 @@ add_executable(logicsComponent main.cpp)
 
 #specify target_link libraries after add_executable only.
 target_link_libraries(logicsComponent PRIVATE helloLib)
+

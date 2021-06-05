@@ -1,7 +1,7 @@
 #include <iostream>
 #include "makeDirectory.h"
 
-void generalFunctions::makeDirectory()
+GENERAL_FUNCTIONS_API void generalFunctions::makeDirectory()
 {
     std::cout << "string to say make directory\n";
 }
